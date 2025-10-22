@@ -1,12 +1,12 @@
 // tests/app.test.js
 const request = require('supertest');
-const app = require('../app');
+const app = require('../app'); // Aquí importamos la app
 
 describe('GET /tasks', () => {
   it('should return all tasks', async () => {
     const response = await request(app).get('/tasks');
     expect(response.status).toBe(200);
-    expect(response.body.length).toBe(2);
+    expect(response.body.length).toBe(2);  // Esperamos 2 tareas inicializadas
   });
 });
 

@@ -18,8 +18,5 @@ app.post('/tasks', (req, res) => {
   res.status(201).json(newTask);
 });
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});
-
+// EXPORTAMOS EL APP
 module.exports = app;
