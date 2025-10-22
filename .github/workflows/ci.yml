@@ -1,0 +1,24 @@
+name: CI para Proyecto Node.js
+
+on:
+  push:
+    branches:
+      - sanchez 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out el código
+        uses: actions/checkout@v2
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar tests
+        run: npm test
