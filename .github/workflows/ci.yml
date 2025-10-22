@@ -3,7 +3,8 @@ name: CI para Proyecto Node.js
 on:
   push:
     branches:
-      - sanchez
+      - sanchez  # Asegúrate de que sea la rama correcta
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,6 +20,13 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install
+
+      - name: Verificar instalación de Jest
+        run: |
+          if ! [ -x "$(command -v jest)" ]; then
+            echo "Jest no está instalado correctamente";
+            exit 1;
+          fi
 
       - name: Ejecutar tests
         run: npm test
