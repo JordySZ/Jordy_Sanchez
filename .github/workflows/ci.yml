@@ -3,7 +3,7 @@ name: CI para Proyecto Node.js
 on:
   push:
     branches:
-      - sanchez 
+      - sanchez
 jobs:
   test:
     runs-on: ubuntu-latest
