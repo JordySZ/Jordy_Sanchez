@@ -3,7 +3,7 @@ name: CI para Proyecto Node.js
 on:
   push:
     branches:
-      - sanchez  # Asegúrate de que sea la rama correcta
+      - sanchez  # Cambia esto por la rama correcta si es necesario
 
 jobs:
   test:
@@ -16,7 +16,13 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16'  # Cambia esto a la versión correcta de Node.js para tu proyecto
+
+      - name: Limpiar caché de npm
+        run: npm cache clean --force
+
+      - name: Eliminar node_modules
+        run: rm -rf node_modules
 
       - name: Instalar dependencias
         run: npm install
